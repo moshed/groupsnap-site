@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VWR39LZW5M.com.DNZ.groupsnap"],
+        "components": [
+          { "/": "/j/*", "comment": "Join an album" }
+        ]
+      }
+    ]
+  },
+  "appclips": {
+    "apps": ["VWR39LZW5M.com.DNZ.groupsnap.Clip"]
+  }
+}
