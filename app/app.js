@@ -369,6 +369,18 @@ async function prepareImage(file) {
   return blob ? { blob, w, h, ext: 'jpg', type: 'image/jpeg' } : null;
 }
 
+/** Send the file exactly as it came off disk. Used when we could not decode it.
+ *  The extension has to come from the name or the MIME type, and has to be one
+ *  gs-sign-upload will sign for — anything else is refused server-side anyway. */
+function rawImage(file) {
+  const OK = { jpg: 1, jpeg: 1, png: 1, heic: 1 };
+  const fromName = (file.name.split('.').pop() || '').toLowerCase();
+  const fromType = (file.type.split('/')[1] || '').toLowerCase();
+  const ext = OK[fromName] ? fromName : (OK[fromType] ? fromType : null);
+  if (!ext) return null;
+  return { blob: file, w: null, h: null, ext, type: file.type || 'application/octet-stream' };
+}
+
 async function uploadFiles(files) {
   const e = selectedEvent();
   if (!e || !isLive(e)) { toast('Pick an open album first.'); return; }
@@ -389,8 +401,12 @@ async function uploadFiles(files) {
         const ext = /quicktime/.test(file.type) ? 'mov' : 'mp4';
         payload = { blob: file, w: null, h: null, ext, type: file.type };
       } else {
-        payload = await prepareImage(file);
-        if (!payload) throw new Error('Could not read that file.');
+        // A browser that cannot decode the file — desktop Chrome and HEIC is the
+        // usual pair — still gets to upload it. The bucket accepts heic, iOS
+        // renders it, and losing the photo would be far worse than losing the
+        // downscale.
+        payload = await prepareImage(file) || rawImage(file);
+        if (!payload) throw new Error('Unsupported file type.');
       }
 
       const signed = await fn('gs-sign-upload', { event_id: e.id, ext: payload.ext });
