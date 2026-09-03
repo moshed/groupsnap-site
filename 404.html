@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GroupSnap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// GitHub Pages has no rewrites. A share link of the form /j/<CODE> therefore
+// lands here whenever the iPhone app did not claim it as a universal link —
+// i.e. the guest has no app. Bounce them into the browser client with the code
+// already filled in, which is the whole point of the web client existing.
+(function () {
+  var m = location.pathname.match(/\/j\/([A-Za-z0-9]{6})/);
+  location.replace(m ? '/app/?c=' + m[1].toUpperCase() : '/');
+})();
+</script>
+</head>
+<body></body>
+</html>
