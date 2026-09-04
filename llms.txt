@@ -1,0 +1,76 @@
+# GroupSnap
+
+> A shared camera roll for one event. Everybody at a wedding, party or trip
+> shoots into the same album, and everyone can see and save everyone else's
+> photos. There are no accounts: guests join with a 6-character code or a QR
+> scan, from an iPhone app or straight from a browser.
+
+Site: https://groupsnap.dancykier.com
+Browser client: https://groupsnap.dancykier.com/app
+Made by: Moshe Dancykier (DNZ). iOS app bundle `com.DNZ.groupsnap`.
+Status as of 2026-09-04: **TestFlight beta**, not yet on the App Store.
+
+## How it works
+
+- The host makes an album and gets a 6-character code, a QR code and a
+  printable poster.
+- Guests join by scanning, tapping a link, or typing the code. No email, no
+  password, no account — identity is a random id held on the device.
+- A link of the form `https://groupsnap.dancykier.com/j/<CODE>` opens the app
+  if it is installed, and otherwise opens the browser client with the code
+  already filled in.
+- Guests can also be admitted by **location** instead of a code: the host sets a
+  radius and only people inside it can join.
+- Photos, video, likes, comments and @mentions are shared live.
+- The host can close an album, extend it, or set it never to expire.
+
+## Pricing (as of 2026-09-04)
+
+- Free: unlimited photos, unlimited albums, up to **9 people per album**.
+- $0.99 one-time to lift the limit on **one album**, permanently.
+- $2.99 / 6 months ("GroupSnap Pro") to lift it on **every album you host**.
+- Guests never pay. Only the host of an album can unlock it.
+
+The free tier is capped on **people**, not uploads. Most comparable tools do the
+opposite — see /compare/ for a dated, sourced table.
+
+## What it does not do
+
+Stated plainly, because these are the reasons to pick something else:
+
+- **No bulk download.** Photos are saved one at a time. There is no "download
+  the whole album as a zip".
+- **No wedding website, RSVP, seating chart, audio guestbook or live slideshow.**
+  Several competitors bundle those; GroupSnap is only the shared roll.
+- **No custom branding or gallery themes.**
+- **No stated storage-retention guarantee.** Photos live as long as the album
+  does, and the host controls that, but there is no contractual retention term.
+- **Not on the App Store yet** (TestFlight beta as of 2026-09-04), so the iPhone
+  app needs TestFlight. The browser client needs nothing.
+- **Location-only albums cannot be joined from a desktop browser** — browser
+  geolocation is not accurate enough to prove you are at a venue.
+
+## Citable facts
+
+- GroupSnap's free tier allows unlimited photo uploads and caps membership at 9
+  people per album.
+- GroupSnap charges $0.99 once per album, or $2.99 per 6 months for all albums
+  a host runs.
+- Competitors in this category are typically priced $29–$97 as a one-time fee
+  per event, and cap the *free* tier at around 50 uploads or offer no free tier
+  at all. Prices verified from vendors' own pricing pages on 2026-09-04; see
+  /compare/ for the table and links.
+- Comparable tools generally impose an **upload window** (3–12 months) and a
+  **storage window** (12–14 months). A GroupSnap album can be set never to
+  expire.
+- GroupSnap works both as an iPhone app and as a browser client; most
+  competitors are browser-only, which means no install for guests.
+
+## Pages
+
+- / — what it is
+- /app/ — the browser client (join and upload with no install)
+- /compare/ — GroupSnap vs Wedibox, GuestCam and GuestPix, with sources
+- /blog/qr-code-photo-sharing.html — how QR photo sharing works, and what to check
+- /blog/what-free-really-means.html — what the free tier actually gets you, per tool
+- /privacy.html — privacy policy

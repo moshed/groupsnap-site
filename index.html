@@ -7,6 +7,9 @@
 <meta name="description" content="Everyone at the wedding shot photos. Now they are on forty different phones. GroupSnap puts them all in one place while the party is still happening.">
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#080b11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://groupsnap.dancykier.com/">
+<meta property="og:url" content="https://groupsnap.dancykier.com/">
+<meta name="twitter:image" content="https://groupsnap.dancykier.com/icon.png">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
@@ -27,11 +30,39 @@
     "@type": "Person",
     "name": "Moshe Dancykier"
   },
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD",
+      "description": "Unlimited photos and albums, up to 9 people per album." },
+    { "@type": "Offer", "name": "Unlock one album", "price": "0.99", "priceCurrency": "USD",
+      "description": "Lifts the 9-person limit on a single album, permanently." },
+    { "@type": "Offer", "name": "GroupSnap Pro", "price": "2.99", "priceCurrency": "USD",
+      "description": "Every album you host is unlimited. Renews every 6 months." }
+  ],
+  "featureList": [
+    "Join by 6-character code or QR scan, with no account",
+    "Works in a browser as well as an iPhone app",
+    "Unlimited photos on the free tier",
+    "Albums can be set never to expire",
+    "Optional location-based joining"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do guests need the app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Anyone can open the album in a browser and add photos there. The app is nicer on an iPhone, but it is not required, and neither way asks for an account." } },
+    { "@type": "Question", "name": "What does GroupSnap cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nothing for an album of up to 9 people, with unlimited photos and unlimited albums. Past 9 people the host unlocks the album: $0.99 once for that album, or $2.99 every 6 months for every album they host. Guests never pay." } },
+    { "@type": "Question", "name": "How long do the photos stay?",
+      "acceptedAnswer": { "@type": "Answer", "text": "As long as the album is open. The host can close it, extend it, or set it never to expire. GroupSnap publishes no contractual retention term, so keep your own copy of anything that matters." } },
+    { "@type": "Question", "name": "Are the photos public?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Only people with the code can see the album. A host can also require guests to be physically inside a radius of the venue instead of using a code." } },
+    { "@type": "Question", "name": "Can I download the whole album at once?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not yet. Photos are saved one at a time; there is no bulk download." } }
+  ]
 }
 </script>
 <script>
@@ -39,114 +70,7 @@
   (function(){try{var t=localStorage.getItem('theme');
     if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --panel-3:#e9ebf1;
-    --border:#e4e6ee; --border-hover:#c7cddc;
-    --text:#0d1220; --dim:#5c6478; --mute:#9098a8;
-    --accent:#5a2a7a; --accent-soft:#5a2a7a1a;
-    --shadow:0 1px 2px rgba(13,18,32,.04), 0 10px 30px -16px rgba(13,18,32,.16);
-    --shadow-hi:0 2px 5px rgba(13,18,32,.06), 0 26px 50px -22px rgba(13,18,32,.32);
-    --sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;
-    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
-  }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-    --bg:#080b11; --panel:#111823; --panel-3:#1c2634;
-    --border:#212c3d; --border-hover:#36485f;
-    --text:#eaf0f8; --dim:#94a3b8; --mute:#5f6d82;
-    --accent:#9f83b1; --accent-soft:#9f83b126;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -18px rgba(0,0,0,.9);
-    --shadow-hi:0 2px 6px rgba(0,0,0,.5), 0 30px 60px -26px rgba(0,0,0,1);
-  }}
-  :root[data-theme="dark"]{
-    --bg:#080b11; --panel:#111823; --panel-3:#1c2634;
-    --border:#212c3d; --border-hover:#36485f;
-    --text:#eaf0f8; --dim:#94a3b8; --mute:#5f6d82;
-    --accent:#9f83b1; --accent-soft:#9f83b126;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -18px rgba(0,0,0,.9);
-    --shadow-hi:0 2px 6px rgba(0,0,0,.5), 0 30px 60px -26px rgba(0,0,0,1);
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0; background:var(--bg); color:var(--text);
-    font:15px/1.6 var(--sans); -webkit-font-smoothing:antialiased}
-  .wrap{max-width:900px; margin:0 auto; padding:0 26px 100px}
-  a{color:var(--accent)}
-
-  /* ---- Top bar --------------------------------------------------------- */
-  .bar{display:flex; align-items:center; gap:12px; padding:22px 0 0}
-  .bar .home{display:flex; align-items:center; gap:8px; color:var(--mute);
-    text-decoration:none; font:600 11px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase}
-  .bar .home:hover{color:var(--text)}
-  .bar .sp{flex:1}
-  .theme-btn{width:36px; height:36px; display:grid; place-items:center; border-radius:50%;
-    border:1px solid var(--border); background:var(--panel); color:var(--dim); cursor:pointer}
-  .theme-btn:hover{color:var(--text); border-color:var(--border-hover)}
-  .theme-btn svg{width:16px; height:16px; display:none}
-  .theme-btn .i-sun{display:block}
-  :root[data-theme="dark"] .theme-btn .i-sun{display:none}
-  :root[data-theme="dark"] .theme-btn .i-moon{display:block}
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .theme-btn .i-sun{display:none}
-    :root:not([data-theme="light"]) .theme-btn .i-moon{display:block}
-  }
-
-  /* ---- Hero ------------------------------------------------------------ */
-  .hero{padding:52px 0 0; text-align:center}
-  .hero .ic{width:104px; height:104px; border-radius:24px;
-    box-shadow:0 14px 34px rgba(13,18,32,.22), 0 0 0 1px rgba(13,18,32,.06)}
-  h1{margin:24px 0 0; font:700 clamp(32px,5.4vw,48px)/1.06 var(--sans); letter-spacing:-.035em}
-  .tag{color:var(--accent); font:600 15px/1.4 var(--sans); margin:12px 0 0}
-  .lede{color:var(--dim); font-size:17px; margin:16px auto 0; max-width:50ch}
-
-  .cta{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; margin:30px 0 0}
-  .btn{display:inline-flex; align-items:center; gap:9px; text-decoration:none;
-    font:600 15px/1 var(--sans); letter-spacing:-.01em; padding:14px 22px; border-radius:12px;
-    background:var(--accent); color:#fff; border:1px solid transparent;
-    box-shadow:var(--shadow); transition:transform .15s, box-shadow .15s}
-  .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-hi)}
-  .btn svg{width:18px; height:18px}
-  .btn.ghost{background:var(--panel); color:var(--text); border-color:var(--border)}
-  .btn.ghost:hover{border-color:var(--border-hover)}
-  .status{color:var(--mute); font:600 11px/1 var(--mono); letter-spacing:.12em;
-    text-transform:uppercase; margin:16px 0 0}
-  .note{color:var(--mute); font-size:13px; margin:10px auto 0; max-width:44ch}
-
-  .shot{margin:44px auto 0; max-width:760px; border-radius:18px; overflow:hidden;
-    border:1px solid var(--border); box-shadow:var(--shadow-hi)}
-  .shot img{display:block; width:100%; height:auto}
-
-  /* ---- Sections -------------------------------------------------------- */
-  section{margin-top:64px}
-  .sec-head{display:flex; align-items:baseline; gap:12px; margin:0 0 20px}
-  .sec-head h2{margin:0; font:600 13px/1 var(--mono); letter-spacing:.13em;
-    text-transform:uppercase; color:var(--mute)}
-  .sec-head .rule{flex:1; height:1px; background:var(--border)}
-
-  .feats{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
-  .f{background:var(--panel); border:1px solid var(--border); border-radius:14px;
-    padding:18px 18px 19px; box-shadow:var(--shadow)}
-  .f h3{margin:0; font:650 15px/1.3 var(--sans); letter-spacing:-.018em}
-  .f p{margin:7px 0 0; color:var(--dim); font-size:13.5px; line-height:1.5}
-
-  details{background:var(--panel); border:1px solid var(--border); border-radius:12px;
-    padding:14px 16px; margin-bottom:9px}
-  details[open]{border-color:var(--border-hover)}
-  summary{cursor:pointer; font:650 14.5px/1.4 var(--sans); letter-spacing:-.015em;
-    list-style:none}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+"; float:right; color:var(--mute); font-weight:400}
-  details[open] summary::after{content:"–"}
-  details p{margin:10px 0 0; color:var(--dim); font-size:13.5px}
-
-  footer{margin-top:70px; padding-top:24px; border-top:1px solid var(--border);
-    color:var(--mute); font-size:13px; display:flex; justify-content:space-between;
-    flex-wrap:wrap; gap:10px}
-  footer a{color:var(--dim); text-decoration:none}
-  footer a:hover{color:var(--accent)}
-  @media (max-width:560px){ .hero{padding-top:34px} .feats{grid-template-columns:1fr} }
-  @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="wrap">
@@ -165,7 +89,7 @@
     <h1>GroupSnap</h1>
     <p class="tag">One shared camera roll for the whole event.</p>
     <p class="lede">Everyone at the wedding shot photos. Now they are on forty different phones. GroupSnap puts them all in one place while the party is still happening.</p>
-    <div class="cta"><a class="btn" href="https://testflight.apple.com/join/JMrQM211"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 20h20L12 2zm0 4.6L18.3 18H5.7L12 6.6z"/></svg> Join the beta on TestFlight</a><a class="btn ghost" href="/app/">Open it in your browser</a></div>
+    <div class="cta"><a class="btn" href="https://testflight.apple.com/join/JMrQM211"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 20h20L12 2zm0 4.6L18.3 18H5.7L12 6.6z"/></svg> Join the beta on TestFlight</a><a class="btn ghost" href="/app/">Open it in your browser</a><a class="btn ghost" href="/compare/">How it compares</a></div>
     <p class="status">TestFlight beta</p>
     <p class="note">Free, and open to anyone. The app needs Apple’s TestFlight installed first — the browser version needs nothing at all.</p>
     <div class="shot"><img src="shot.jpg" alt="GroupSnap running on an iPhone" loading="lazy"></div>
@@ -173,17 +97,19 @@
 
   <section>
     <div class="sec-head"><h2>What it does</h2><span class="rule"></span></div>
-    <div class="feats"><div class="f"><h3>One album, everyone</h3><p>Every guest shoots into the same roll. You get the whole night, not just your corner of it.</p></div><div class="f"><h3>Join by code or QR</h3><p>Guests scan or type a short code. No account to make.</p></div><div class="f"><h3>Full quality</h3><p>Originals, not the squashed copies a group chat gives back.</p></div><div class="f"><h3>Download the lot</h3><p>Take the whole album home when the event is over.</p></div><div class="f"><h3>Any phone works</h3><p>No iPhone? Open the album in a browser, add your photos, see everyone else’s. Nothing to install.</p></div><div class="f"><h3>Made for events</h3><p>A wedding, a bar mitzvah, a trip, a birthday. It closes when you say so.</p></div></div>
+    <div class="feats"><div class="f"><h3>One album, everyone</h3><p>Every guest shoots into the same roll. You get the whole night, not just your corner of it.</p></div><div class="f"><h3>Join by code or QR</h3><p>Guests scan or type a short code. No account to make.</p></div><div class="f"><h3>Full quality</h3><p>Originals, not the squashed copies a group chat gives back.</p></div><div class="f"><h3>Save what you want</h3><p>Any photo, straight into your own camera roll, at full size.</p></div><div class="f"><h3>Any phone works</h3><p>No iPhone? Open the album in a browser, add your photos, see everyone else’s. Nothing to install.</p></div><div class="f"><h3>Made for events</h3><p>A wedding, a bar mitzvah, a trip, a birthday. It closes when you say so.</p></div></div>
   </section>
 
   <section>
     <div class="sec-head"><h2>Questions</h2><span class="rule"></span></div>
-    <details><summary>Do guests need the app?</summary><p>No. Anyone can open the album in a browser and add photos there. The app is nicer on an iPhone, but it is not required, and neither way asks for an account.</p></details><details><summary>Does the browser version cost anything or need a sign-in?</summary><p>Neither. You type your name, type the album code, and you are in.</p></details><details><summary>What does it cost?</summary><p>Nothing for an album of up to 9 people — unlimited photos, unlimited albums. Past 9, the host unlocks the album: $0.99 for that one album forever, or $2.99 every 6 months for every album they host. Guests never pay, and nobody already in an album is ever removed.</p></details><details><summary>How long do the photos stay?</summary><p>As long as the album is open. Download everything before you close it.</p></details><details><summary>Are the photos public?</summary><p>No. Only people with the code can see the album.</p></details>
+    <details><summary>Do guests need the app?</summary><p>No. Anyone can open the album in a browser and add photos there. The app is nicer on an iPhone, but it is not required, and neither way asks for an account.</p></details><details><summary>Does the browser version cost anything or need a sign-in?</summary><p>Neither. You type your name, type the album code, and you are in.</p></details><details><summary>What does it cost?</summary><p>Nothing for an album of up to 9 people — unlimited photos, unlimited albums. Past 9, the host unlocks the album: $0.99 for that one album forever, or $2.99 every 6 months for every album they host. Guests never pay, and nobody already in an album is ever removed.</p></details><details><summary>How long do the photos stay?</summary><p>As long as the album is open. Download everything before you close it.</p></details><details><summary>Are the photos public?</summary><p>No. Only people with the code can see the album. A host can also require guests to be physically at the venue instead of using a code at all.</p></details><details><summary>Can I download the whole album at once?</summary><p>Not yet. You save photos one at a time — there is no bulk download. If handing someone a folder of everything is the point, say so and we will tell you what to use instead: see the <a href="/compare/">comparison</a>.</p></details>
   </section>
 
   <footer>
     <span>Built by Moshe Dancykier</span>
     <span>
+      <a href="/compare/">Compare</a> ·
+      <a href="/blog/">Guides</a> ·
       <a href="https://dancykier.com">All projects</a> ·
       <a href="privacy.html">Privacy</a> ·
       <a href="mailto:groupsnap@dancykier.com">groupsnap@dancykier.com</a>
