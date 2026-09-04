@@ -8,6 +8,11 @@ Repo `moshed/groupsnap-site`, served from GitHub Pages. Two things live here:
 | `/app/` | **the browser client** — `index.html` + `app.js`, same shape |
 | `/j/<CODE>` | the share link. See "How a share link resolves" below |
 | `/.well-known/apple-app-site-association` | claims `/j/*` for the iPhone app |
+| `/compare/` | GroupSnap vs Wedibox, GuestCam, GuestPix — dated, sourced, and honest about what we lose |
+| `/blog/` | two guides, `Article` + `FAQPage` JSON-LD |
+| `/llms.txt` | the GEO file: citable dated facts, and an explicit "what it does not do" |
+| `/robots.txt`, `/sitemap.xml` | crawlers named explicitly; sitemap submitted to `sc-domain:dancykier.com` |
+| `/style.css` | shared CSS, extracted from index.html so every page matches |
 | `/privacy.html` | privacy policy |
 
 There is no build step and no dependency. Edit, commit, push; Pages rebuilds in
@@ -99,3 +104,18 @@ at 500 or wider.
 To render a signed-in screen, copy `app/` somewhere scratch and inject a prelude
 that seeds `localStorage` from the query string before `app.js` loads. Never
 commit that prelude.
+
+
+## Say only what the app actually does
+
+The landing page claimed *"Download the lot — take the whole album home when the
+event is over"* from July until 2026-09-04. **The app has no bulk download** — it
+saves one photo at a time — so the claim was simply false, and it survived because
+nobody checked the copy against the code.
+
+The comparison page's whole value is that it is trustworthy, so it lists what
+GroupSnap does worse (no bulk download, no RSVP/guestbook/slideshow, no branding,
+no retention term, TestFlight only, no real event has used it). Keep it that way:
+a comparison page that only flatters is worth nothing to a reader or to an answer
+engine. Competitor prices carry the date they were read and a link to the source —
+re-check them before quoting them anywhere else.
