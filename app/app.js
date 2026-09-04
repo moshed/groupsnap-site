@@ -184,9 +184,14 @@ async function doJoin() {
     openRoll();
     toast(`You're in ${event.name}`);
   } catch (e) {
-    // A location-only album can't be entered from a browser: the iOS app asks the
-    // OS for a fix, but a desktop browser's geolocation is nowhere near accurate
-    // enough to be a venue check, so we never claim one.
+    // Two refusals a browser guest can hit and do nothing about, so the message
+    // has to name who can fix it:
+    //   - a location-only album (the iOS app asks the OS for a fix; a desktop
+    //     browser's geolocation is nowhere near accurate enough to stand in for
+    //     "you are at the venue", so we never claim one);
+    //   - a full album (9 people free) — only the host can unlock it, and only
+    //     from the app, so we never show a browser guest a price.
+    // gs-join already words both for the person reading them; pass them through.
     $('join-err').textContent = e.message;
   } finally {
     $('join-go').disabled = false;

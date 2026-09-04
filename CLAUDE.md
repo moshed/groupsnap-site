@@ -73,6 +73,10 @@ Does not:
   near accurate enough to stand in for "you are at the venue", so the client
   never sends coordinates and lets `gs-join` refuse. `code` and `both` work.
 - **compose an @mention.** It renders them correctly; the picker is app-only.
+- **pay.** A free album holds 9 people; past that only the *host* can unlock it,
+  and only from the app (StoreKit has no web equivalent here). A browser guest
+  who hits the wall gets `gs-join`'s 402 text telling them to ask the host,
+  which the join screen already surfaces verbatim.
 - **receive push.** No APNs, and `gs-register-device` is never called.
 
 ### Uploading
