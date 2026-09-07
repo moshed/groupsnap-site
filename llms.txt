@@ -22,6 +22,11 @@ Status as of 2026-09-04: **TestFlight beta**, not yet on the App Store.
 - Guests can also be admitted by **location** instead of a code: the host sets a
   radius and only people inside it can join.
 - Photos, video, likes, comments and @mentions are shared live.
+- Any member can take the whole album: "Save all to Photos" creates a Photos
+  album named after the event, and "Download all as a file" exports one .zip.
+  GroupSnap does not charge for either.
+- Photos are stored at up to 2400px on the long edge, JPEG quality 0.82. The
+  camera original is not kept.
 - The host can close an album, extend it, or set it never to expire.
 
 ## Pricing (as of 2026-09-04)
@@ -38,8 +43,6 @@ opposite — see /compare/ for a dated, sourced table.
 
 Stated plainly, because these are the reasons to pick something else:
 
-- **No bulk download.** Photos are saved one at a time. There is no "download
-  the whole album as a zip".
 - **No wedding website, RSVP, seating chart, audio guestbook or live slideshow.**
   Several competitors bundle those; GroupSnap is only the shared roll.
 - **No custom branding or gallery themes.**
@@ -60,6 +63,9 @@ Stated plainly, because these are the reasons to pick something else:
   per event, and cap the *free* tier at around 50 uploads or offer no free tier
   at all. Prices verified from vendors' own pricing pages on 2026-09-04; see
   /compare/ for the table and links.
+- GroupSnap includes whole-album export (to a Photos album, or as a .zip) on the
+  free tier. Comparable tools generally treat handing over the full gallery as
+  the paid deliverable.
 - Comparable tools generally impose an **upload window** (3–12 months) and a
   **storage window** (12–14 months). A GroupSnap album can be set never to
   expire.
